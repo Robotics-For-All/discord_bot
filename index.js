@@ -1,13 +1,11 @@
-require('dotenv').config();
 const Discord = require('discord.js');
-let express = require('express');
-let app = express();
+require('dotenv').config();
 
-app.get('/', function (req, res) {
-  res.send('hello! this is the rfa discord bot :)');
+const client = new Discord.Client;
+
+client.on('ready', () => {
+  console.log('Bot is online.')
 });
-
-const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] });
 
 client.on("message", msg => {
   if (msg.content === "welcome") {
